@@ -1,0 +1,127 @@
+/* TABLAS */    
+thead {
+    background: rgba(33, 154, 175, 0.548);
+}
+
+.tablaS1 {
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 23vh;
+    position: relative;
+    height: 60vh;
+    width: 140vh;
+    margin: 0;
+    margin-bottom: 1vh;
+
+}
+.tablaS2 {
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 43vh;
+    position: relative;
+    height: 60vh;
+    width: 150vh;
+    margin: 0;
+}
+.tablaS3 {
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 63vh;
+    position: relative;
+    height: 60vh;
+    width: 150vh;
+    margin-bottom: 20vh;
+}
+.espacio{
+    height: 50vh;
+    width: 150vh;
+}
+
+table {
+    height: 60vh;
+    width: 180vh;
+    object-position: center;
+    text-align: center;
+}
+
+.tablaS1 td {
+    padding: 5px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    height: 6vh;
+    width: 10vh;
+}
+
+.tlimpiezadempresa{
+    height: 15vh;
+    position: relative;
+    top: 25vh;
+    left: 60vh;
+    width: 0;
+}
+
+
+.tlimpiezadempresa p{
+    height: 40vh;
+    width: 100vh;
+    color: #2cdae0;
+    font-size:70px;
+    text-align: center;
+}
+.tmercadeo{
+    height: 15vh;
+    position: relative;
+    top: 33vh;
+    left: 60vh;
+    width: 0;
+}
+.tmercadeo p{
+    height: 40vh;
+    width: 100vh;
+    color: #2cdae0;
+    font-size:70px;
+    text-align: center;
+}
+.trecoleccion{
+    height: 15vh;
+    position: relative;
+    top: 53vh;
+    left: 60vh;
+    width: 0;
+}
+.trecoleccion p{
+    height: 40vh;
+    width: 100vh;
+    color: #2cdae0;
+    font-size:70px;
+    text-align: center;
+}
+.tipodeserv{
+    height: 10vh;
+    position: relative;
+    top: 15vh;
+    left: 60vh;
+    width: 0;
+}
+.tipodeserv p{
+    height: 40vh;
+    width: 100vh;
+    color: #ffffff;
+    font-size:90px;
+    text-align: center;
+    font-style:inherit;
+}

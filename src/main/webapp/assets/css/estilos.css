@@ -1,0 +1,237 @@
+/* GENERALES */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #104749;
+}
+
+/* SCROLLBAR */
+
+body::-webkit-scrollbar{
+    width: 10px;
+    background: #1b6b4a;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border-right: 2px solid #27a872;
+}
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: fixed;
+    display: flex;
+    height: 100%;
+}
+
+.bubbles span {
+    column-rule: transparent;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+} 
+
+.bubbles span:nth-child(even){
+    background: #3ace67;
+    box-shadow: 0 0 0 10px #2dff9d44,
+    0 0 50px #3ace67,
+    0 0 100px 3ace67;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* FONTS GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* VARIABLES */
+
+:root {
+    --blanco: #E0E0E0;
+    --azul-opacidad: #5fc596;
+    --bg-menu: #05381a;
+    --bg-body: #C7E1FF;
+}
+
+/* TABLAS */
+
+table {
+    color: #ffffff;
+    font-size: 25px;
+    table-layout:fixed;
+    border-collapse: collapse;
+    height: 90vh;
+    width: 200vh;
+}
+
+thead {
+    background: rgba(65, 145, 99, 0.548);
+}
+
+th {
+    padding: 10px;
+    font-weight: 750;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 5px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    height: 4vh;
+    
+}
+
+
+tbody tr {
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background: rgba(90, 148, 202, 0.4);
+}
+
+
+/* LAYOUT DASH*/
+
+.menu-dashboard {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--blanco);
+    max-width: 140px;
+    height: 100vh;
+    background: var(--bg-menu);
+    padding: 20px;
+    transition: max-width .3s ease;
+    flex-basis: 20rem;
+    flex-grow: 1;
+    position: fixed;
+}
+
+.menu{
+    position: relative;
+    top: 15vh;
+}
+.top-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-menu .logo {
+    display: flex;
+    align-items: center;
+}
+
+.top-menu .logo img {
+    width: 60px;
+    transition: width .3s ease;
+}
+
+.top-menu .logo span {
+    font-size: 20px;
+    margin-left: 20px;
+    display: none;
+}
+
+.top-menu .toggle {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.top-menu .toggle i {
+    font-size: 35px;
+}
+
+
+
+/* ENLACES MENU */
+
+.menu .enlace {
+    width: 100%;
+    padding: 20px 0 20px 17px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all .3s ease;
+}
+
+.menu .enlace:hover {
+    background: var(--azul-opacidad);
+}
+
+.menu .enlace i {
+    margin-right: 25px;
+    font-size: 25px;
+    align-items: center;
+}
+.menu .enlace a {
+    text-decoration: none;
+    color: #ffffff;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu .enlace span {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.menu-dashboard.open {
+    max-width: 300px;
+}
+
+.menu-dashboard.open .top-menu .logo span {
+    display: block;
+}
+
+.menu-dashboard.open .input-search
+.menu-dashboard.open .menu .enlace {
+    width: auto;
+}
+
+.menu-dashboard.open .input-search .input {
+    display: block;
+}
+
+.menu-dashboard.open .menu .enlace {
+    padding: 20px;
+}
+
+.menu-dashboard.open .menu .enlace span {
+    opacity: 1;
+}
+
+

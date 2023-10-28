@@ -1,0 +1,92 @@
+
+h1 {
+    font-size: 80px;
+    background-image: url("https://64.media.tumblr.com/37692b559003f5300f04064b4dbb9618/290b9ae3d8542b2a-be/s500x750/da557ccbfec959169254477465a41bad189de424.gifv");
+    color: #fff;
+    color: transparent;
+    background-size: contain;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0px -3px 1px rgba(0, 0, 0, 1));
+    animation: stripes 5s infinite alternate;
+    font-family: 'Inter';
+    font-weight: 800	;
+}
+.logo{
+  font-size: 180px;
+  font-weight: 700;
+}
+
+@keyframes stripes {
+  100% {
+    background-position: 100px 0, 100px 0, 100px 0;
+  }
+}
+
+.btn-rounded {
+  font-family: Raleway-SemiBold;
+  font-size: 22px;
+  color: rgba(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid #1a78ee;
+  border-radius: 40px;
+  background: #1a78ee;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded:hover {
+  color: rgb(74, 169, 255);
+  background: rgb(206, 232, 255);
+  border: 1px solid #1a78ee;
+}
+.btn-rounded-ed {
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid rgb(0, 166, 0);
+  border-radius: 40px;
+  background: rgb(0, 170, 0);
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded-ed:hover {
+  color: rgb(0, 128, 0);
+  background: rgb(153, 215, 123);
+  border: 1px solid rgb(0, 128, 0);
+}
+.btn-rounded-el {
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid rgb(255, 0, 0);
+  border-radius: 40px;
+  background: rgb(255, 106, 106);
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded-el:hover {
+  color: rgb(208, 47, 47);
+  background: rgb(255, 179, 179);
+  border: 1px solid rgb(238, 72, 72);
+}
+.btn-cerrar {
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 40px;
+  background: rgb(88, 88, 88);
+  transition: all 0.3s ease 0s;
+}
+
+.btn-cerrar:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(51, 51, 51);
+  border: 1px solid rgb(0, 0, 0);
+}

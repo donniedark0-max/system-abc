@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic,Inter");
+
+
+
+/* General */
+body {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   background: linear-gradient(to bottom, #d4d4d4bd,#dedada5e, #ffffff, #ffffff);
+  font-family: 'Inter';
+  height: 100vh;
+     	cursor: url(/assets/css/images/arrow.png) 6 0, auto !important;
+
+}
+
+/* Input Forms*/
+
+
+h1 {
+    font-size: 46px;
+    background-image: url("https://us.coca-cola.com/content/dam/nagbrands/us/coke/en/homepage-updates-8-22/nav-allproducts.png");
+    color: #fff;
+    color: transparent;
+    background-size: contain;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0px -3px 1px rgba(0, 0, 0, 1));
+    animation: stripes 5s infinite alternate;
+    font-family: 'Inter';
+}
+.logo{
+  font-size: 100px;
+  font-weight: 700;
+}
+
+@keyframes stripes {
+  100% {
+    background-position: 100px 0, 100px 0, 100px 0;
+  }
+}
+
+/* Header */
+header {
+  border-bottom: 2px solid #eee;
+  padding: 20px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+header a {
+  text-decoration: none;
+  color: #333;
+}

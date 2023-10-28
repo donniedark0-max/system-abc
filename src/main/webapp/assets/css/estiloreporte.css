@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #104749;
+}
+
+
+
+/* TABLA */
+
+.tablareporte {
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 25%;
+    position: relative;
+    height: 60vh;
+    width: 140vh;
+    margin: 0;
+}
+
+/* DATOS DEL USUARIO */
+
+
+.foto{
+    width: 15vh;
+    height: 15vh;
+    display: flex;
+    position: fixed;
+    top: 10px;
+    float: right;
+    right: 100px;
+    
+}
+.foto img{
+    border-radius: 60%;
+    width: 130px;
+    height: 130px;
+}
+.info p{
+    height: 5vh;
+    width: 25vh;
+    color: #ffffff;
+
+    font-size:35px;
+}
+
+.info{
+    float: left;
+    height: 15vh;
+    position: fixed;
+    top: 60px;
+    text-align: left;
+    right: 250px;
+}
+
+.treporte{
+    height: 15vh;
+    position: fixed;
+    top: 110px;
+    left: 100vh;
+}
+.treporte p{
+    height: 5vh;
+    width: 25vh;
+    color: #9bc49c;
+
+    font-size:80px;
+}
+
+.treportef{
+    height: 15vh;
+    position: fixed;
+    top: 111px;
+    left: 101vh;
+}
+.treportef p{
+    height: 5vh;
+    width: 25vh;
+    color: #336835a4;
+    font-size:80px;
+}
+.td img{
+    background-color: #5fc596;
+    
+}
+a{
+    width: 5vh;
+}
+
