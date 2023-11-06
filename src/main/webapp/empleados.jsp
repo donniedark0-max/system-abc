@@ -19,7 +19,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<link
+<link	
 	href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma/bulma.css"
 	rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/table.css">
@@ -111,7 +111,7 @@ th {
 									<div class="form-group">
 										<label for="contraseña" class="form-label">Contraseña</label>
 										<input type="password" class="form-control" name="contrasena"
-											id="id-contraseña" readonly>
+											id="id-contraseña">
 									</div>
 									<div class="form-group">
 										<label for="rol" class="form-label">Rol</label>
@@ -253,14 +253,14 @@ th {
     });
     
     $(document).on("click", ".btn-eliminar", function() {
-    	var id;
+    	var cod;
         var nombre;
-        id= $(this).parents("tr").find("td")[0].innerHTML;
+        cod= $(this).parents("tr").find("td")[0].innerHTML;
         nombre = $(this).parents("tr").find("td")[2].innerHTML; // Obtener el nombre del empleado
     
         Swal.fire({
             title: '¿Seguro de eliminar?',
-            text: '¿Desea eliminar al empleado "' + nombre + '"con ID: ' + id + '"?', // Usar el nombre y el DNI en el mensaje
+            text: '¿Desea eliminar al empleado "' + nombre + '"con ID: ' + cod + '"?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -269,7 +269,7 @@ th {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "http://localhost:8080/system-abc/ServletEmpleados?accion=eliminar&codigo=" + codigo;
+                window.location = "http://localhost:8080/system-abc/ServletEmpleados?accion=eliminar&id=" +cod;
             }
         });
     });

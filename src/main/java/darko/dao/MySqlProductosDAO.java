@@ -258,11 +258,13 @@ public class MySqlProductosDAO implements ProductosDAO{
 		    try {
 		        cn = new MySqlConectar().getConectar();
 
-		        int categoriaID = 0; // Valor predeterminado para la categoría C
+		        int categoriaID = 4; // Valor predeterminado para la categoría C
 		        if (categoria.equals("A")) {
 		            categoriaID = 1;
 		        } else if (categoria.equals("B")) {
 		            categoriaID = 2;
+		        } else if (categoria.equals("C")) {
+		            categoriaID = 4;
 		        }
 
 		        String sql = "UPDATE Productos SET CategoriaID = ? WHERE Codigo = ?";

@@ -19,6 +19,8 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma/bulma.css"
 	rel="stylesheet">
+	     <link rel="icon" href="assets/css/images/coca-cola-logo.svg">
+	
 <!-- JavaScript para redirigir a login.jsp si sessionScope.datosEmpleado es nulo -->
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -49,12 +51,16 @@ document.addEventListener("DOMContentLoaded", function() {
 						aria-current="page" href="categorias.jsp">Categorias</a></li>
 						<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="empleados.jsp">Usuarios</a></li>
+						<li class="nav-item"><a style="color: black; font-weight: bolder;" class="nav-link active"
+						aria-current="page" href="incidencia.jsp">Reportar Incidencia</a></li>
+						<li class="nav-item"><a style="color: black; font-weight: bolder;" class="nav-link active"
+						aria-current="page" href="dicfallas.jsp">Diccionario de Fallas</a></li>
 
 			</ul>
 			<div class="flex"
-				style="width: 200px !important; padding-top: 10px; font-weight: bolder;">
-				<p style="color: black;">Bienvenido
-					${sessionScope.datosEmpleado}!</p>
+				style="width: 200px !important; padding-top: 10px; ">
+				Bienvenido querido
+					<p style="color: black; font-weight: bolder;">${sessionScope.datosEmpleado}!</p>
 			</div>
 
 			<form id="FormularioInicioSesion" method="post"

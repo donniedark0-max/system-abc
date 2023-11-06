@@ -107,7 +107,7 @@ th {
 											type="text" class="form-control" name="descripcion" id="id-descripcion">
 									</div>
 									<div class="form-group">
-												<label for="especialidad" class="label-form text-secondary" readonly>Especialidad</label>
+												<label for="especialidad" class="label-form text-secondary" readonly>Categoria</label>
 												<select class="form-select" name="categoria"
 													id="id-categoria" >
 													<option value=" ">[Categoria]</option>
@@ -120,7 +120,7 @@ th {
 											type="text" class="form-control" name="precio" id="id-precio">
 									</div>	
 									<div class="form-group">
-										<label for="cantidad" class="form-label">Descripcion</label> <input
+										<label for="cantidad" class="form-label">Cantidad en Stock</label> <input
 											type="text" class="form-control" name="cantidad" id="id-cantidad">
 									</div>	
 
@@ -285,38 +285,58 @@ th {
 $(document).ready(function() {
 	 $('#FormularioEmpleado').bootstrapValidator({      
     	 fields:{
-            login: {
-                validators: {
-                	notEmpty : {
-						message : 'El campo email es obligatorio'
-					},
-					emailAddress : {
-						message : 'El campo email no es válido'
-					}
-                }
-            },
             nombre: {
                 validators: {
+                	notEmpty : {
+						message : 'El campo nombre es obligatorio'
+					},
+                },
+            },
+            codigo: {
+                validators: {
                     notEmpty: {
-                        message: 'El Nombre es obligatorio'
+                        message: 'El codigo es obligatorio'
                     },
-                    stringLength: {
-                        max: 15,
-                        message: 'El Nombre no debe tener más de 15 caracteres'
-                    },
-                    regexp: {
-                        regexp: /^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+$/,
-                        message: 'El Nombre solo puede contener letras y tildes'
-                    }
+
                 }
        
  			
-		 		}
+		 		},
+		 		descripcion: {
+	                validators: {
+	                    notEmpty: {
+	                        message: 'La descripcion es obligatorio'
+	                    },
+
+	                }
+	       
+	 			
+			 		},
+			 		especialidad: {
+		                validators: {
+		                    notEmpty: {
+		                        message: 'La categoria es obligatorio'
+		                    },
+
+		                }
+		       
+		 			
+				 		},
+				 		precio: {
+			                validators: {
+			                    notEmpty: {
+			                        message: 'El precio es obligatorio'
+			                    },
+
+			                }
+					 		}
+					 		
 		 	}
 		 
 	 
 });   
-	
+});    
+
 </script>
 
 

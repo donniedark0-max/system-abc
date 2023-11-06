@@ -9,10 +9,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
 </head>
+<style>
+
+.btn-rounded {
+height:30px;
+  font-family: Raleway;
+  font-size: 23px;
+  color: rgba(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 1px solid #f9fafd;
+  border-radius: 40px;
+  background: #000000;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded:hover {
+  color: rgb(255, 255, 255);
+  background: #f2080b;
+  border: 1px solid rgba(242,8,11,255);
+}
+.btn-rounded-1 {
+	height:40px;
+	weight:100px;
+  font-family: Sans-Serif;
+  font-size: 25px;
+  color: rgba(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid #f2080b;
+  border-radius: 10px;
+  background: #f2080b;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded-1:hover {
+  color: rgb(255, 255, 255);
+  background: #a5161f;
+  border: 1px solid #a5161f;
+}
+
+</style>
 <body>
-  <h1>Productos</h1>
+  <h1 style="text-align:center">Productos</h1>
 <table id="product-table" class="table" style="width:100%">
-    <thead>
+    <thead style=" background-color: #333;
+    color: #fdfdfd;">
         <tr>
             <th id="header-row">Código</th>
             <th id="header-row">Unidades</th>
@@ -26,7 +68,7 @@
 				            
         </tr>
     </thead>
-    <tbody>
+    <tbody  style= "background-color: #d0eaf9;">
     </tbody>
      <tfoot>
         <tr>
@@ -40,14 +82,23 @@
         </tr>
     </tfoot>
 </table>
+<div style="padding-left:450px;">
+<button class="btn-rounded-1"onclick="calcularImporte()">Calcular Importe</button>
 
-<button onclick="calcularImporte()">Calcular Importe</button>
-
-  <button id="ordenar-por-importe">Ordenar por Importe</button>
-  <button id="calcular-total">Calcular Total</button>
-  <button id="asignar-categorias">Asignar Categorías</button>
+  <button class="btn-rounded-1"id="ordenar-por-importe">Ordenar por Importe</button>
+  <button class="btn-rounded-1"id="calcular-total">Calcular Total</button>
+  <button class="btn-rounded-1"id="asignar-categorias">Asignar Categorías</button>
+</div>  
   
+  <div style="height:80px">
   
+  </div>
+  <div>
+  <h1 style="text-align:center"> Graficos</h1>
+  </div>
+  <canvas id="grafico-de-barras"></canvas>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
 <script>
 cargarProductos();
@@ -64,7 +115,7 @@ function cargarProductos() {
                 "<td class='prodSobInv'></td>" +
                 "<td class='InvAc'></td>" +
                 "<td class='TipoProd'></td>" +
-                "<td><button class='actualizar-categoria' data-codigo='" + item.Codigo + "'>Actualizar</button></td>"
+                "<td><button class='btn-rounded actualizar-categoria' data-codigo='" + item.Codigo + "'>Actualizar</button></td>"
             );
         });
         productosJSON = response;
@@ -224,8 +275,28 @@ $(document).ready(function() {
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
 </script>
 <script>
+$.get("ServletProductosJSON", function(response) {
+    // Asigna la respuesta del servlet a la variable productosJSON
+    productosJSON = response;
+
+    // Verifica si se proporcionó una función de devolución de llamada
+    if (typeof callback === 'function') {
+        callback();
+    }
+
 $(document).on('click', '.actualizar-categoria', function() {
     // Obtén el código del producto desde el atributo de datos
     const codigoProducto = $(this).data('codigo');
@@ -251,8 +322,80 @@ $(document).on('click', '.actualizar-categoria', function() {
             alert('Error al actualizar la categoría');
         }
     });
+    generarGraficoDeBarras();
 });
-</script>
+generarGraficoDeBarras();
+
+
+
+
+//Datos para el gráfico de barras
+function generarGraficoDeBarras() {
+    // Recopila los datos de las categorías y la cantidad de unidades en cada categoría
+    const categoria = ['Categoría A', 'Categoría B', 'Categoría C', 'Productos sin asignar']; // Define tus categorías
+    const unidadesPorCategoria = [0, 0, 0, 0]; // Inicializa el contador de unidades
+    // Recorre los productos y suma las unidades a las categorías correspondientes
+    productosJSON.forEach(function(producto) {
+    	
+
+        const categoria = producto.Nombre_Categoria; // Ajusta esta propiedad según tu JSON
+        const unidades = producto.CantidadEnStock; // Ajusta esta propiedad según tu JSON
+
+        if (categoria === 'A') {
+            unidadesPorCategoria[0] += unidades;
+        } else if (categoria === 'B') {
+            unidadesPorCategoria[1] += unidades;
+        } else if (categoria === 'C') {
+            unidadesPorCategoria[2] += unidades;
+        }else {
+            // Si la categoría no es A, B ni C, asume "Sin categoría"
+            unidadesPorCategoria[3] += unidades;
+        }
+    });
+    // Datos para el gráfico de barras
+    var data = {
+        labels: categoria,
+        datasets: [{
+            label: 'Unidades por categoría',
+            data: unidadesPorCategoria,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Configuración del gráfico
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    // Obtener el contexto del canvas
+    var ctx = document.getElementById('grafico-de-barras').getContext('2d');
+
+    // Crear el gráfico de barras
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+} 	
+});
+
+
+</script>	
+
 
 </body>
 </html>

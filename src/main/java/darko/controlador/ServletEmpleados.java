@@ -59,8 +59,19 @@ public class ServletEmpleados extends HttpServlet {
 		response.sendRedirect("login.jsp");
 	}
 
-	private void EliminarEmpleado(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void EliminarEmpleado(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String id=request.getParameter("id");
+		//invocar al método deleteById y enviar la variable "id
+		int estado=new MySqlUsuariosDAO().deleteById(Integer.parseInt(id));
+		//validar estado
+		if(estado==1)
+			System.out.println("SI");
+		else
+			System.out.println("NO");
+		//crear atributo de tipo sesión
+		request.getSession().setAttribute("MENSAJE","Usuario eliminado");
+	
+		response.sendRedirect("empleados.jsp");		
 		
 	}
 
@@ -149,7 +160,7 @@ public class ServletEmpleados extends HttpServlet {
         if (hashIngresado.equals(usuario.getPassword())) {
             // Las contraseñas coinciden, el inicio de sesión es exitoso
 	        HttpSession session = request.getSession();
-            session.setAttribute("datosEmpleado", usuario.getCorreoElectronico());
+            session.setAttribute("datosEmpleado", usuario.getUsername()	);
             response.sendRedirect("empleados.jsp");
             request.getSession().setAttribute("INICIO", "BIENVENIDO");
         } else {

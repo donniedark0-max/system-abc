@@ -8,9 +8,8 @@
     <meta charset="utf-8">
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css"> 
      <link rel="icon" href="assets/css/images/coca-cola-logo.svg">
-
   </head>
   <body>
 
@@ -38,7 +37,6 @@
     <span><a class="text-blue-700 hover:text-blue-900 no-underline" href="signup.php">Regístrate</a></span>
  </div>
     </div>
-
 
     <script>	
   document.getElementById("FormularioInicioSesion").addEventListener("submit", function(event) {

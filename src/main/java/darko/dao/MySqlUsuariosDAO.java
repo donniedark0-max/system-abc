@@ -52,14 +52,16 @@ public class MySqlUsuariosDAO implements UsuariosDAO{
 	    PreparedStatement pstm = null;
 	    try {
 	        cn = new MySqlConectar().getConectar();
-	        String sql = "UPDATE usuarios SET Nombre = ?, Password = ?, Rol = ?, CorreoElectronico = ?, Activo = ? WHERE Username = ?";
+	        String sql = "UPDATE usuarios SET Nombre = ?, Username= ?, Password = ?, Rol = ?, CorreoElectronico = ?, Activo = ?, salt = ? WHERE UsuarioID= ?";
 	        pstm = cn.prepareStatement(sql);
 	        pstm.setString(1, bean.getNombre());
-	        pstm.setString(2, bean.getPassword());
-	        pstm.setBoolean(3, bean.isRol());
-	        pstm.setString(4, bean.getCorreoElectronico());
-	        pstm.setBoolean(5, bean.isActivo());
-	        pstm.setString(6, bean.getUsername());
+	        pstm.setString(2,  bean.getUsername());
+	        pstm.setString(3, bean.getPassword());
+	        pstm.setBoolean(4, bean.isRol());
+	        pstm.setString(5, bean.getCorreoElectronico());
+	        pstm.setBoolean(6, bean.isActivo());
+	        pstm.setBytes(7, bean.getSalt());
+	        pstm.setInt(8, bean.getUsuarioID());
 
 	        salida = pstm.executeUpdate();
 	    } catch (Exception e) {
@@ -84,7 +86,7 @@ public class MySqlUsuariosDAO implements UsuariosDAO{
 		    PreparedStatement pstm = null;
 		    try {
 		        cn = new MySqlConectar().getConectar();
-		        String sql = "DELETE FROM usuarios WHERE UsuariosID = ?";
+		        String sql = "DELETE FROM usuarios WHERE UsuarioID = ?";
 		        pstm = cn.prepareStatement(sql);
 		        pstm.setInt(1, cod);
 
