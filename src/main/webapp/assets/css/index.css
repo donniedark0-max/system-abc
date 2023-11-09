@@ -1,0 +1,79 @@
+
+.btn-rounded {
+height:30px;
+  font-family: Raleway;
+  font-size: 23px;
+  color: rgba(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 1px solid #f9fafd;
+  border-radius: 40px;
+  background: #000000;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded:hover {
+  color: rgb(255, 255, 255);
+  background: #f2080b;
+  border: 1px solid rgba(242,8,11,255);
+}
+.btn-rounded-1 {
+	height:40px;
+	weight:100px;
+  font-family: Sans-Serif;
+  font-size: 25px;
+  color: rgba(255, 255, 255);
+  letter-spacing: 1px;
+  line-height: 18px;
+  border: 2px solid #f2080b;
+  border-radius: 10px;
+  background: #f2080b;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-rounded-1:hover {
+  color: rgb(255, 255, 255);
+  background: #a5161f;
+  border: 1px solid #a5161f;
+}
+
+.canvasSec1{
+	    background-color: rgb(255, 255, 255);
+    padding: 50px 150px;
+}
+
+#grafico-de-barras{
+	height: 760px!important;
+	}
+
+.canvas1{
+	align-items: center;
+    background-color: rgb(242, 230, 255);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 25px;
+    box-sizing: border-box;
+    justify-content: center;
+   
+}
+.canvasSec3{
+	    background-color: rgb(26, 26, 26);
+    padding: 50px 150px;
+}
+
+
+
+.canvas3{
+	align-items: center;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 25px;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 800px;
+    
+   
+}

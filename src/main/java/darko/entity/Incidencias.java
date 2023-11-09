@@ -1,13 +1,14 @@
 package darko.entity;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Incidencias {
 	private int IncidenciaID;
 	private int ProductoID;
 	private String Estado;
-	private LocalDateTime FechaRegistro;
-	private LocalDateTime FechaSolucion;
+	private Timestamp FechaRegistro;
+	private Timestamp FechaSolucion;
 	private String DescripcionIncidencia;
 	public int getIncidenciaID() {
 		return IncidenciaID;
@@ -27,16 +28,16 @@ public class Incidencias {
 	public void setEstado(String estado) {
 		Estado = estado;
 	}
-	public LocalDateTime getFechaRegistro() {
+	public Timestamp getFechaRegistro() {
 		return FechaRegistro;
 	}
-	public void setFechaRegistro(LocalDateTime fechaRegistro) {
-		FechaRegistro = fechaRegistro;
+	public void setFechaRegistro(Timestamp timestamp) {
+		FechaRegistro = timestamp;
 	}
-	public LocalDateTime getFechaSolucion() {
+	public Timestamp getFechaSolucion() {
 		return FechaSolucion;
 	}
-	public void setFechaSolucion(LocalDateTime fechaSolucion) {
+	public void setFechaSolucion(Timestamp fechaSolucion) {
 		FechaSolucion = fechaSolucion;
 	}
 	public String getDescripcionIncidencia() {

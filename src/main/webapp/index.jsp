@@ -7,49 +7,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    
     <title>Productos</title>
 </head>
-<style>
 
-.btn-rounded {
-height:30px;
-  font-family: Raleway;
-  font-size: 23px;
-  color: rgba(255, 255, 255);
-  letter-spacing: 1px;
-  line-height: 18px;
-  border: 1px solid #f9fafd;
-  border-radius: 40px;
-  background: #000000;
-  transition: all 0.3s ease 0s;
-}
-
-.btn-rounded:hover {
-  color: rgb(255, 255, 255);
-  background: #f2080b;
-  border: 1px solid rgba(242,8,11,255);
-}
-.btn-rounded-1 {
-	height:40px;
-	weight:100px;
-  font-family: Sans-Serif;
-  font-size: 25px;
-  color: rgba(255, 255, 255);
-  letter-spacing: 1px;
-  line-height: 18px;
-  border: 2px solid #f2080b;
-  border-radius: 10px;
-  background: #f2080b;
-  transition: all 0.3s ease 0s;
-}
-
-.btn-rounded-1:hover {
-  color: rgb(255, 255, 255);
-  background: #a5161f;
-  border: 1px solid #a5161f;
-}
-
-</style>
 <body>
   <h1 style="text-align:center">Productos</h1>
 <table id="product-table" class="table" style="width:100%">
@@ -86,7 +48,7 @@ height:30px;
 <button class="btn-rounded-1"onclick="calcularImporte()">Calcular Importe</button>
 
   <button class="btn-rounded-1"id="ordenar-por-importe">Ordenar por Importe</button>
-  <button class="btn-rounded-1"id="calcular-total">Calcular Total</button>
+  <button class="btn-rounded-1"id="calcular-total" onclick="generarGraficoDePuntos()">Calcular Total</button>
   <button class="btn-rounded-1"id="asignar-categorias">Asignar Categorías</button>
 </div>  
   
@@ -96,7 +58,26 @@ height:30px;
   <div>
   <h1 style="text-align:center"> Graficos</h1>
   </div>
-  <canvas id="grafico-de-barras"></canvas>
+  
+  <section class="canvasSec1">
+		
+			<h2 class="text-center">Categoria de productos</h2>
+			<hr class="my-4">
+		<div class="canvas1 pt-5">
+			<canvas id="grafico-de-barras"></canvas>
+		</div>
+	</section>
+  
+  
+  
+  <section class="canvasSec3">
+		
+			<h2 class="text-center text-white">Importe por categoria</h2>
+			<hr class="my-4">
+		<div class="canvas3 pt-5">
+		 <canvas id="grafico-de-puntos"></canvas>
+		</div>
+		</section>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -245,6 +226,7 @@ $(document).ready(function() {
     $("#calcular-total").on("click", function() {
         calcularMontoTotalYPorcentajes();
         calcularPorcentajeInventarioAcumulado();
+
     });
     function asignarCategorias() {
         const valorAcumuladoCells = $(".valorA");
@@ -391,6 +373,86 @@ function generarGraficoDeBarras() {
         options: options
     });
 } 	
+
+//Función para calcular el importe total por categoría
+function calcularImporteTotalPorCategoria() {
+    const importeTotalPorCategoria = {
+        'A': 0,
+        'B': 0,
+        'C': 0,
+        'X': 0
+    };
+
+    productosJSON.forEach(function(producto) {
+        const categoria = producto.Nombre_Categoria;
+        const unidades = producto.CantidadEnStock;
+        const precioUnitario = producto.PrecioUnitario;
+        const importe = unidades * precioUnitario;
+        importeTotalPorCategoria[categoria] += importe;
+    });
+
+    return importeTotalPorCategoria;
+}
+
+// Función para generar el gráfico de tarta (pie chart)
+function generarGraficoDeTarta() {
+    const categorias = ['A', 'B', 'C', 'X'];
+    const importeTotalPorCategoria = Object.values(calcularImporteTotalPorCategoria());
+
+    const data = {
+        labels: categorias,
+        datasets: [
+            {
+                data: importeTotalPorCategoria,
+                backgroundColor: [
+            	    '#FFADAD',
+            	    '#FFD6A5',
+            	    '#FDFFB6',
+            	    '#CAFFBF',
+            	    '#9BF6FF',
+            	    '#A0C4FF',
+            	    '#BDB2FF',
+            	    '#FFC3A0',
+            	    '#FF677D',
+            	    '#D4A5A5',
+            	    '#FCBCB8',
+            	    '#F0E68C',
+            	    '#98FB98',
+            	    '#C6E2FF',
+            	    '#FFD700',
+            	    '#DE3163',
+            	    '#96BB7C',
+            	    '#FF69B4',
+            	    '#FFD700',
+            	    '#E7D3B8'],
+            },
+        ],
+    };
+
+    const options = {
+        responsive: true,
+    };
+
+    const ctx = document.getElementById('grafico-de-puntos').getContext('2d');
+    let myPieChart;
+
+    if (myPieChart) {
+        myPieChart.destroy();
+    }
+
+    myPieChart = new Chart(ctx, {
+        type: 'pie', // Utiliza un gráfico de tarta (pie chart)
+        data: data,
+        options: options,
+    });
+}
+
+// Llama a la función para generar el gráfico de tarta
+generarGraficoDeTarta();
+
+
+
+
 });
 
 

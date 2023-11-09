@@ -81,3 +81,36 @@ div.mb-3 {
     color: #000;
     position: relative;
 }
+
+.Hoja.estilo7{
+      align-items: center;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    border-radius: 25px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    height: 600px;
+    padding-left: 80px;
+    padding-right: 80px;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    
+}
+.canvasSec3{
+	    background-color: rgb(26, 26, 26);
+    padding: 50px 150px;
+}
+
+
+.bg-img {
+padding-top: 100px;
+  width: 100%;
+  height: 950px;
+  background: url("http://unsplash.it/1200x800") center center no-repeat;
+  background-size: cover;
+   background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+  opacity: 0.6;
+}
