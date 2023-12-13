@@ -1,6 +1,6 @@
 # Project Integrador II
 
-Project created as part of Integrator II course
+Project created as part of course
 
 ## TY
 
