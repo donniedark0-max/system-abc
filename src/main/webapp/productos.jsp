@@ -100,7 +100,7 @@ th {
 									</div>
 									<div class="form-group">
 										<label for="login" class="form-label">Codigo</label> <input
-											type="text" class="form-control" name="codigo" id="id-codigo">
+											type="text" class="form-control" name="codigo" id="id-codigop">
 									</div>
 									<div class="form-group">
 										<label for="login" class="form-label">Descripcion</label> <input
@@ -245,9 +245,14 @@ th {
         var id;
         id = $(this).parents("tr").find("td")[0].innerHTML;
         $.get("ServletFindProductosJSON?id=" + id, function(response) {
+        	console.log(response);
             $("#id-codigo").val(response.ProductoID);
             $("#id-nombre").val(response.Nombre);
             $("#id-descripcion").val(response.Descripcion);
+            $("#id-codigop").val(response.Codigo);
+            $("#id-categoria").val(response.Nombre_Categoria);
+            $("#id-precio").val(response.PrecioUnitario);
+            $("#id-cantidad").val(response.CantidadEnStock);
 
         });
     });

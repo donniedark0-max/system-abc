@@ -34,7 +34,7 @@
  <div class="flex  items-center justify-center">
   <p className="my-4 text-sm flex justify-between px-3 text-black w-96 mx-auto my-auto">
         ¿No tiene una cuenta?
-    <span><a class="text-blue-700 hover:text-blue-900 no-underline" href="signup.php">Regístrate</a></span>
+    <span><a class="text-blue-700 hover:text-blue-900 no-underline" href="">Comuniquese con la administración</a></span>
  </div>
     </div>
 
